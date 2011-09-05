@@ -1,4 +1,8 @@
+---
 Title: README
+---
+
+# README
 
 Web.php 是一个REST风格的轻量级web开发框架。
 
@@ -24,18 +28,18 @@ POST.AJAX)方法运行之前和其后执行。这可以用来实现登陆鉴权�
 
 ✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
-USEAGE: 
+# USEAGE: 
 
 * 一个典型的目录结构：
-|-- compiled   模板编译目录，需要读写权限
-|-- inc.php     
-|-- index.php  控制器代码 
-|-- modules    逻辑或者其他需要封装的代码
-|   `-- hello
-|       `-- world.class.php
-|-- templates  模板目录
-|   `-- index.html
-`-- webphp     不解释
+ |-- compiled   模板编译目录，需要读写权限
+ |-- inc.php     
+ |-- index.php  控制器代码 
+ |-- modules    逻辑或者其他需要封装的代码
+ |   `-- hello
+ |       `-- world.class.php
+ |-- templates  模板目录
+ |   `-- index.html
+ `-- webphp     不解释
 
 * 如何使用静态文件(css,js)?
 请放在根目录下的static目录下。
