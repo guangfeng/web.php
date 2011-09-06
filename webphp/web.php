@@ -186,15 +186,6 @@ class Web
             $uri = str_replace($this->_baseURLPath, '', $uri);        
         }                              
         
-        // strip off first slash        
-        if(substr($uri, 0, 1) == "/"){            
-            $uri = substr($uri, 1);
-        }
-        
-        // knock off last slash
-        if (substr($uri, -1) == "/") {
-            $uri = substr($uri, 0, -1);
-        }        
         
         $this->request_uri = $uri;        
     }
@@ -312,6 +303,8 @@ class Web
             $instance->debugMsg(htmlspecialchars($url_path) . 
                                 ' : '. 
                                 htmlspecialchars($instance->request_uri));
+			$url_path = '#^'.$url_path.'$#';
+			
             if (preg_match($url_path, $instance->request_uri, $matches)) {
                 if (is_string($options)) {
                     $saved = $options;
@@ -491,7 +484,31 @@ class Web
         
         return $output; 
     }                                            
+	
+	/**
+     * web.php database (webdb for short) method depended upon ADODB project
+	 * $db = Web::database('mysql','hello','root','passwd');
+	 * $db->select($table,$where = null ,$what = " * " ,$order = null,$limit =1,$offset = 0,$test = false)
+     * or ->insert(),->update(),->delete();
+	 * $db->debugDisplay() will display webdb running time messages.
+	 * 
+     * @param string $dbn   Name of the database system we are connecting to. Eg. odbc or mssql or mysql.
+     * @param string $db    Name of the database or to connect to. 
+     * @param string $user  Login id to connect to database. Password is not saved for security reasons.
+     * @param string $pw    password
+     * @param string $host
+     * @param string $port
+     * @param string $char   set the default charset to use.
+     * @param string $debug  debug mode
+     * @return Webdb Instance Object
+     * @author Guang Feng
+     */
 
+    public static function database($dbn, $db, $user, $pw , $host = '127.0.0.1', $port = '3306', $char = 'UTF8', $debug = false)
+    {   
+        include_once 'lib/db.php';
+		return db::Instance($dbn, $db, $user, $pw , $host, $port, $char, $debug);
+    }
     
     /**
      * send a request to a url and get the response
