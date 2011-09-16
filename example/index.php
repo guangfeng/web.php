@@ -17,7 +17,7 @@ class hello {
 require 'inc.php';
 
 //正则表达式 => 控制器
-\$urls = array('#^$#' => 'hello',); 
+\$urls = array('/' => 'hello',); 
 
 class hello {
 	

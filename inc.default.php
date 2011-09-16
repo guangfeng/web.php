@@ -42,6 +42,8 @@ function __autoload($class_name)
 		include_once $file_path;		
 }
 
+spl_autoload_register("__autoload");
+
 
 include 'webphp/web.php';  
                            
