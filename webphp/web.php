@@ -412,6 +412,10 @@ class Web
 	             && $_SERVER['HTTP_X_REQUESTED_WITH']  == 'XMLHttpRequest');       
 	}
 	
+	public static function session() {
+		require_once 'lib/session.php';
+		return Session;
+	}
 	
 	/**
 	 * getTemplate

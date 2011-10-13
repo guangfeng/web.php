@@ -2,9 +2,12 @@
 Title: CHANGE
 ---
 
-# 2011-09-06 v0.11
+- 2011-09-06 v0.11
 
 * Add Web::database
 * Fix URI router rule
 * Add example for web.php
 
+- 2011-09-27 v0.12
+
+* Add Web::session
