@@ -105,6 +105,21 @@ class Web
     {
         $this->_debugMessages[] = $msg;
     }
+
+	static function debugLog($log)
+	{	
+		$bt = debug_backtrace(1);
+		$invoke = array_shift($bt);
+
+		$instance = self::instance();
+		
+		if($instance->debug()) {
+			$msg = 'Logging : <span style="color:#669900;">'.$log.'</span> in <strong>'.$invoke['file'].'</strong> on line <strong>'.$invoke['line'].'</strong> at '.date('Y-m-d H:i:s:u').' </div></blockquote>';						
+		} else {
+			$msg = "Logging : '$log' in ".$invoke['file']." on line ".$invoke['line']." at ".date('Y-m-d H:i:s:u');
+		}
+		$instance->debugMsg($log);
+	}
     
     /**
      * display debug messages
@@ -125,6 +140,24 @@ class Web
             printf("<li>%s</li>", $msg);
         }                                  
         echo "</ol>";
+    }
+
+	public function debugOutput()
+    {
+        if (!$this->_debugMessages 
+            || !is_array($this->_debugMessages)) {
+            return;
+        }          
+        
+		$tmp = date('Y-m-d H:i:s:u')."Debug Messages\n";
+		$tmp .= str_repeat('*',100)."\n";
+        
+        foreach ($this->_debugMessages as $msg) {
+            $tmp .= $msg."\n";
+        }                                  
+        $tmp .= str_repeat('*',100)."\n\n";
+
+		@error_log($tmp,3,INVOKE_LOG_DIR.'/invoke-'.date('Y-m-d').'.log'));
     }
         
     
@@ -296,7 +329,10 @@ class Web
         // process the request uri
         $instance->requestUri();
         
-        // debug
+		$instance->debug($devMode);
+		$instance->debugMsg('Devmode : '.$devMode);
+        
+		// debug
         $instance->debugMsg('START URL matching');
         
         foreach ($urls as $url_path => $options) {
@@ -394,6 +430,8 @@ class Web
        
 	   if($devMode === true) {
 		$instance->debugDisplay();
+	   }else {
+	   	$instance->debugOutput();
 	   }
 	
 	 }

@@ -23,6 +23,9 @@ define('TPL_PLUGINS_DIR', TEMPLATES_DIR.'/plugins');
 
 define('TPL_SUB_DIR',false);
 
+//default web.php running log will store into this dir
+define('INVOKE_LOG_DIR',SITE_BASE."/logs");
+
 // include path
 set_include_path( SITE_BASE . '/webphp/lib/' . PATH_SEPARATOR . get_include_path());
 

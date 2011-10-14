@@ -11,3 +11,7 @@ Title: CHANGE
 - 2011-09-27 v0.12
 
 * Add Web::session
+
+- 2011-10-14 v0.13
+
+* Add Web::debugLog,see issues#2
