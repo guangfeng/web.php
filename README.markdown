@@ -30,13 +30,13 @@ POST.AJAX)方法运行之前和其后执行。这可以用来实现登陆鉴权�
 
 ✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
-# USEAGE: 
+# USEAGE:
 
 * 一个典型的目录结构：
 
  	|-- compiled   模板编译目录，需要读写权限
- 	|-- inc.php     
- 	|-- index.php  控制器代码 
+ 	|-- inc.php
+ 	|-- index.php  控制器代码
  	|-- modules    逻辑或者其他需要封装的代码
  	|   `-- hello
  	|       `-- world.class.php
@@ -46,48 +46,48 @@ POST.AJAX)方法运行之前和其后执行。这可以用来实现登陆鉴权�
 
 
 * 如何使用静态文件(css,js)?
-	
+
   请放在根目录下的static目录下。
 
 
 # DEMO:
-	
-<code>	
+
+<code>
 	//载入引导文件
 	require 'inc.php';
 
 	//正则表达式 => 控制器
-	$urls = array('#^$#' => 'hello',); 
-	
+	$urls = array('#^$#' => 'hello',);
+
 	class hello {
-	
+
 	/**
 	 *处理控制器的GET请求
 	 */
 	function GET(){
-		
+
 		//Web::render 支持Smarty模板引擎的渲染方法
 		return Web::render('index.html',array('title'=>'模板的标题'));
-		
+
 	}
-	
+
 	/**
 	 *处理控制器的POST请求
 	 */
 	function POST(){
-		
+
 		//Web::input 包含了来自外部GET,POST以及SERVER和其他参数信息
 		if(Web::input()->post->keyExists('name')) {
 			\$name = Web::input()->accessor('name');
-			
+
 			\$db = Web::database(\$dbn = 'mysql',\$db = 'guest', \$user = 'root', \$pw = 'pw');
 			\$uid = \$db->insert('guest_name',array('name' => \$name));
-			
+
 			if(\$uid) echo "欢迎加入！";
 			else echo "加入失败！";
 		}
 	}
-	
+
 	/**
 	 *处理控制器的Ajax请求
 	 */
@@ -98,7 +98,7 @@ POST.AJAX)方法运行之前和其后执行。这可以用来实现登陆鉴权�
 
 	try {
 	//运行实例，devMode打开运行时消息
-    Web::run(\urls,$devMode = true); 
+    Web::run(\urls,$devMode = true);
 	} catch (RequestErrorException $e) {
 	//内部错误，跳转到合理的错误
     $e->ViewError();

@@ -19,7 +19,7 @@ require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'Inspekt/Cage.php';
 
 /**
  * The Supercage object wraps ALL of the superglobals
- * 
+ *
  * @package Inspekt
  *
  */
@@ -80,7 +80,7 @@ Class Inspekt_Supercage {
 
 	/**
 	 * Enter description here...
-	 * 
+	 *
 	 * @param string  $config_file
 	 * @param boolean $strict
 	 * @return Inspekt_Supercage
@@ -115,8 +115,8 @@ Class Inspekt_Supercage {
 		// $this->session	= Inspekt::makeSessionCage($config_file, $strict);
 		$this->server	= Inspekt::makeServerCage($config_file, $strict);
 	}
-	
-	
+
+
 	public function addAccessor($name) {
 		$this->get->addAccessor($name);
 		$this->post->addAccessor($name);

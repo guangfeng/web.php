@@ -424,7 +424,7 @@ class Inspekt_Cage implements IteratorAggregate, ArrayAccess, Countable {
 		}
 		return Inspekt::getROT13($this->_getValue($key));
 	}
-	
+
 
 	/**
 	 * This returns the value of the given key passed through the HTMLPurifer
@@ -958,7 +958,7 @@ class Inspekt_Cage implements IteratorAggregate, ArrayAccess, Countable {
 			} else {
 				return FALSE;
 			}
-			
+
 		}
 	}
 
@@ -1002,7 +1002,7 @@ class Inspekt_Cage implements IteratorAggregate, ArrayAccess, Countable {
 	}
 
 
-	
+
 	protected function _getValueRecursive($keys, $data_array, $level=0) {
 		$thiskey = current($keys);
 
