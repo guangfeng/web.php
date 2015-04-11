@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 error_reporting(E_ALL);
 ini_set('display_errors',1);
@@ -11,7 +11,7 @@ ini_set('display_errors',1);
  * @author Guang Feng
  */
 define("SITE_BASE", dirname(__FILE__));
-define("MODULES_DIR", SITE_BASE."/modules");  
+define("MODULES_DIR", SITE_BASE."/modules");
 define('TEMPLATES_DIR', SITE_BASE.'/templates');
 
 define('TPL_COMPILED_DIR', SITE_BASE.'/compiled');
@@ -37,16 +37,16 @@ set_include_path( SITE_BASE . '/webphp/lib/' . PATH_SEPARATOR . get_include_path
  */
 
 function __autoload($class_name)
-{                                                
+{
 	$class = str_replace('_','/',$class_name);
 	$file_name = $class.".class.php";
 	$file_path = MODULES_DIR.'/'.$file_name;
-	if(file_exists($file_path)) 
-		include_once $file_path;		
+	if(file_exists($file_path))
+		include_once $file_path;
 }
 
 spl_autoload_register("__autoload");
 
 
-include 'webphp/web.php';  
-                           
+include 'webphp/web.php';
+

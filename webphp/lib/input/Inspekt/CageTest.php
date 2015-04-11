@@ -157,7 +157,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testAddAccessor()
 	{
@@ -204,7 +204,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testGetInt()
 	{
@@ -248,7 +248,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testGetRaw()
 	{
@@ -266,7 +266,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testTestAlnum()
 	{
@@ -278,7 +278,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testTestAlnum2()
 	{
@@ -290,7 +290,7 @@ class Inspekt_CageTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public function testTestAlnum3()
 	{
